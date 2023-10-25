@@ -13,7 +13,7 @@ SOURCE_SCHEMA_PATH = biolink-model.yaml
 SOURCE_SCHEMA_DIR = ./
 SRC = src
 DEST = project
-PYMODEL = $(SRC)/biolink
+PYMODEL = $(SRC)/$(SCHEMA_NAME)/datamodel
 DOCDIR = docs
 
 
@@ -59,10 +59,6 @@ update: update-linkml
 update-linkml:
 	poetry add -D linkml@latest
 
-# EXPERIMENTAL
-create-data-harmonizer:
-	npm init data-harmonizer $(SOURCE_SCHEMA_PATH)
-
 all: site gen-viz-data
 site: gen-project gendoc
 %.yaml: gen-project
@@ -77,8 +73,26 @@ gen-examples:
 
 # generates all project files
 
-gen-project: $(PYMODEL)
-	$(RUN) gen-project ${GEN_PARGS} -d $(DEST) $(SOURCE_SCHEMA_PATH) && mv $(DEST)/*.py $(PYMODEL)
+gen-project:  $(PYMODEL)
+	# keep these in sync between PROJECT_FOLDERS and the includes/excludes for gen-project and test-schema
+	$(RUN) gen-project \
+		--exclude excel \
+		--exclude graphql \
+		--exclude jsonld \
+		--exclude markdown \
+		--exclude proto \
+		--exclude rdf \
+		--exclude shacl \
+		--exclude shex \
+		--exclude sqlddl \
+		--include jsonldcontext \
+		--include jsonschema \
+		--include owl \
+		--include python \
+		--include pydantic \
+		-d $(DEST) $(SOURCE_SCHEMA_PATH) && mv $(DEST)/*.py $(PYMODEL)
+		cp project/jsonschema/biolink-model.schema.json  $(PYMODEL)
+		cp $(SOURCE_SCHEMA_PATH)
 
 
 test: test-schema test-python test-examples
@@ -153,7 +167,7 @@ prefix-map/biolink-model-prefix-map.json: biolink-model.yaml dir-prefix-map env.
 	poetry run gen-prefix-map $< > $@
 
 id-prefixes:
-	poetry run gen-python prefix-map/class_prefixes.yaml > scripts/classprefixes.py
+	poetry run gen-python prefix-map/class_prefixes.yaml > src/biolink-model/scripts/classprefixes.py
 	cd scripts && poetry run python id_prefixes.py
 
 # ----------------------------------------

@@ -110,8 +110,8 @@ Biolink Model aims at representing knowledge in a graph form regardless of the g
 
 Following are some recommendations when attempting to use Biolink Model with each style of representation. 
 
-- **Neo4J**: see [Mapping to Neo4j](about/mapping-neo4j)
-- **RDF**: see [Mapping to RDF](about/mapping-rdf)
+- **Neo4J**: see [Mapping to Neo4j](src/docs/mapping-neo4j.md)
+- **RDF**: see [Mapping to RDF](src/docs/mapping-rdf.md)
 
 # Citing Biolink Model
 Unni DR, Moxon SAT, Bada M, Brush M, Bruskiewich R, Caufield JH, Clemons PA, Dancik V, Dumontier M, Fecho K, Glusman G, Hadlock JJ, Harris NL, Joshi A, Putman T, Qin G, Ramsey SA, Shefchek KA, Solbrig H, Soman K, Thessen AE, Haendel MA, Bizon C, Mungall CJ, The Biomedical Data Translator Consortium (2022). 
