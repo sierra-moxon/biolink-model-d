@@ -81,15 +81,15 @@ gen-project:  $(PYMODEL)
 		--exclude jsonld \
 		--exclude markdown \
 		--exclude proto \
-		--exclude rdf \
 		--exclude shacl \
-		--exclude shex \
 		--exclude sqlddl \
 		--include jsonldcontext \
 		--include jsonschema \
 		--include owl \
 		--include python \
 		--include pydantic \
+		--include rdf \
+		--include shex \
 		-d $(DEST) $(SOURCE_SCHEMA_PATH) && mv $(DEST)/*.py $(PYMODEL)
 		cp project/jsonschema/biolink-model.schema.json  $(PYMODEL)
 		cp $(SOURCE_SCHEMA_PATH)

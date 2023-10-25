@@ -60,17 +60,17 @@ be relatively simple to view and edit in its native form.
 
 The yaml definition is currently used to derive:
 
-  - [JSON Schema](json-schema)
-  - [Python dataclasses](biolink/model.py)
+  - [JSON Schema](project/src/jsonschema/biolink-model.schema.json)
+  - [Python dataclasses](src/biolink-model/datamodel/model.py)
+  - [Pydan classes](src/biolink-model/datamodel/biolink-model-pydantic.py)
   - [Java code gen](java)
-  - [ProtoBuf definitions](biolink-model.proto)
-  - [GraphQL](biolink-model.graphql)
-  - [RDF](biolink-model.ttl)
-  - [OWL](biolink-model.owl.ttl)
-  - [RDF Shape Expressions](biolink-model.shex)
+  - [ProtoBuf definitions](project/src/protobuf/biolink-model.proto)
+  - [GraphQL](project/src/graphql/biolink-model.graphql)
+  - [RDF](project/src/RDF/biolink-model.ttl)
+  - [OWL](project/src/owl/biolink-model.owl.ttl)
+  - [RDF Shape Expressions](project/src/shex/biolink-model.shex)
   - [JSON-LD context](context.jsonld)
   - [Graphviz](graphviz)
-  - [GOlr YAML schemas](golr-views)
     - these can be compiled down to Solr XML schemas
     - these are also intermediate targets used within the BBOP/AmiGO framework
   - [Markdown documentation](docs)
