@@ -16,12 +16,12 @@ where the KG may be either a property graph or RDF triple store.
 The schema is expressed as a [YAML](https://github.com/biolink/biolink-model/blob/master/biolink-model.yaml), which is translated to:
 
  * Individual pages for each class in the model, e.g [https://w3id.org/biolink/vocab/Gene](https://w3id.org/biolink/vocab/Gene)
- * An [OWL ontology](biolink-model.owl.ttl), also available on [BioPortal](https://bioportal.bioontology.org/ontologies/BIOLINK)
- * [Python dataclasses](biolink/model.py), also available on [PyPI](https://pypi.org/project/biolink-model/)
- * [ShEx](biolink-model.shex) (RDF shape constraints)
- * [graphql](biolink-model.graphql) 
- * [protobuf](biolink-model.proto) 
- * [json-schema](json-schema/biolink-model.json) 
+ * An [OWL ontology](project/src/owl/biolink-model.owl.ttl), also available on [BioPortal](https://bioportal.bioontology.org/ontologies/BIOLINK)
+ * [Python dataclasses](src/biolink-model/datamodel/biolink.py), also available on [PyPI](https://pypi.org/project/biolink-model/)
+ * [ShEx](project/src/shex/biolink-model.shex) (RDF shape constraints)
+ * [graphql](project/src/graphql/biolink-model.graphql) 
+ * [protobuf](project/src/protobuf/biolink-model.proto) 
+ * [json-schema](project/src/jsonschema/biolink-model.schema.json) 
  * [prefix-mapping](prefix-map/biolink-model-prefix-map.json)  (A simple mapping of prefix to IRI expansion)
  * [java classes](java/BiolinkModel.java)
 
@@ -110,8 +110,8 @@ Biolink Model aims at representing knowledge in a graph form regardless of the g
 
 Following are some recommendations when attempting to use Biolink Model with each style of representation. 
 
-- **Neo4J**: see [Mapping to Neo4j](about/mapping-neo4j)
-- **RDF**: see [Mapping to RDF](about/mapping-rdf)
+- **Neo4J**: see [Mapping to Neo4j](src/docs/mapping-neo4j.md)
+- **RDF**: see [Mapping to RDF](src/docs/mapping-rdf.md)
 
 # Citing Biolink Model
 Unni DR, Moxon SAT, Bada M, Brush M, Bruskiewich R, Caufield JH, Clemons PA, Dancik V, Dumontier M, Fecho K, Glusman G, Hadlock JJ, Harris NL, Joshi A, Putman T, Qin G, Ramsey SA, Shefchek KA, Solbrig H, Soman K, Thessen AE, Haendel MA, Bizon C, Mungall CJ, The Biomedical Data Translator Consortium (2022). 
